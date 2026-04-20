@@ -23,6 +23,7 @@
   },
   "name":"The price of life",
   "resources":[
+    {"id":{"name":"game_manager_obj","path":"objects/game_manager_obj/game_manager_obj.yy",},},
     {"id":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},},
     {"id":{"name":"main_bg_obj","path":"objects/main_bg_obj/main_bg_obj.yy",},},
     {"id":{"name":"mob_obj","path":"objects/mob_obj/mob_obj.yy",},},
