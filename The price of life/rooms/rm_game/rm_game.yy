@@ -7,10 +7,6 @@
   "inheritLayers":false,
   "instanceCreationOrder":[
     {"name":"inst_4B477AB2","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_1392822","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_20666E68","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_5C37BD99","path":"rooms/rm_game/rm_game.yy",},
-    {"name":"inst_1EFF1D39","path":"rooms/rm_game/rm_game.yy",},
   ],
   "isDnd":false,
   "layers":[
