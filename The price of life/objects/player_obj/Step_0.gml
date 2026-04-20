@@ -1,6 +1,9 @@
 x_speed = keyboard_check(vk_right) - keyboard_check(vk_left)
 y_speed = keyboard_check(vk_down) - keyboard_check(vk_up)
 
+x_speed = keyboard_check(ord("D")) - keyboard_check(ord("Q"))
+y_speed = keyboard_check(ord("S")) - keyboard_check(ord("Z"))
+
 if place_meeting(x+x_speed*move_speed, y, mur_obj) {
 	x_speed = 0
 }
