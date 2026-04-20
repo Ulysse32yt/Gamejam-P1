@@ -31,7 +31,7 @@ function spawn_mob() {
     var _mob = instance_create_layer(_sx, _sy, "Instances", mob_obj)
     
     // Rend les mobs plus forts à chaque vague
-    _mob.hp     = 3 + wave         // +1 PV par vague
-    _mob.hp_max = 3 + wave
-    _mob.move_speed = 1.5 + (wave * 0.15) // De plus en plus rapide
+    _mob.hp     = 2 + wave         // +1 PV par vague
+    _mob.hp_max = 2 + wave
+    _mob.move_speed = 1.5 + (wave * 0.1) // De plus en plus rapide
 }
