@@ -1,13 +1,9 @@
 {
   "$GMObject":"",
-  "%Name":"mob_obj",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"mur_obj",
+  "eventList":[],
   "managed":true,
-  "name":"mob_obj",
+  "name":"mur_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"objets",
@@ -32,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"mob_spr",
-    "path":"sprites/mob_spr/mob_spr.yy",
+    "name":"mur_spr",
+    "path":"sprites/mur_spr/mur_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,

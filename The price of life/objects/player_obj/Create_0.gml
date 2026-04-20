@@ -1,3 +1,4 @@
-xSpeed = 0
-ySpeed = 0
-moveSpeed = 5
+x_speed = 0
+y_speed = 0
+
+move_speed = 5
