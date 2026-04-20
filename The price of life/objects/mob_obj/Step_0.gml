@@ -1,16 +1,10 @@
 
-var _player = instance_nearest(x, y, player_obj);
+player = instance_nearest(x, y, player_obj);
 
-if (instance_exists(_player)) {
+if (instance_exists(player)) {
+
+    Direction = point_direction(x, y, player.x, player.y);
     
-    
-    var _speed = 2;
-    
-    
-    var _dir = point_direction(x, y, _player.x, _player.y);
-    
-    
-    x += lengthdir_x(_speed, _dir);
-    y += lengthdir_y(_speed, _dir);
-    
+    x += lengthdir_x(moveSpeed, Direction);
+    y += lengthdir_y(moveSpeed, Direction);
 }
