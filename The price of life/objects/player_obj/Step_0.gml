@@ -15,3 +15,7 @@ if mouse_check_button_pressed(mb_left) {
 
 x = x+x_speed*move_speed
 y = y+y_speed*move_speed
+
+if place_meeting(x, y, mob_obj) {
+	instance_destroy()
+}
