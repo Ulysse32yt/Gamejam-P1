@@ -23,14 +23,15 @@
   },
   "name":"The price of life",
   "resources":[
+    {"id":{"name":"game_manager_obj","path":"objects/game_manager_obj/game_manager_obj.yy",},},
     {"id":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},},
     {"id":{"name":"main_bg_obj","path":"objects/main_bg_obj/main_bg_obj.yy",},},
     {"id":{"name":"mob_obj","path":"objects/mob_obj/mob_obj.yy",},},
     {"id":{"name":"mur_obj","path":"objects/mur_obj/mur_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
-    {"id":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
+    {"id":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
     {"id":{"name":"button_spr","path":"sprites/button_spr/button_spr.yy",},},
     {"id":{"name":"main_bg_spr","path":"sprites/main_bg_spr/main_bg_spr.yy",},},
     {"id":{"name":"mob_spr","path":"sprites/mob_spr/mob_spr.yy",},},
@@ -41,8 +42,8 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},},
+    {"roomId":{"name":"rm_game","path":"rooms/rm_game/rm_game.yy",},},
+    {"roomId":{"name":"rm_main_menu","path":"rooms/rm_main_menu/rm_main_menu.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
