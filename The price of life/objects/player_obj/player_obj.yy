@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"player_object",
+  "%Name":"player_obj",
   "eventList":[],
   "managed":true,
-  "name":"player_object",
+  "name":"player_obj",
   "overriddenProperties":[],
   "parent":{
-    "name":"The price of life",
-    "path":"The price of life.yyp",
+    "name":"objet",
+    "path":"folders/objet.yy",
   },
   "parentObjectId":null,
   "persistent":false,

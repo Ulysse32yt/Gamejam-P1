@@ -9,7 +9,11 @@
     "name":"Default",
   },
   "defaultScriptType":1,
-  "Folders":[],
+  "Folders":[
+    {"$GMFolder":"","%Name":"son","folderPath":"folders/son.yy","name":"son","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"objet","folderPath":"folders/objet.yy","name":"objet","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"sprite","folderPath":"folders/sprite.yy","name":"sprite","resourceType":"GMFolder","resourceVersion":"2.0",},
+  ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
   "isEcma":false,
@@ -19,8 +23,9 @@
   },
   "name":"The price of life",
   "resources":[
-    {"id":{"name":"player_object","path":"objects/player_object/player_object.yy",},},
+    {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"player_spr","path":"sprites/player_spr/player_spr.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
