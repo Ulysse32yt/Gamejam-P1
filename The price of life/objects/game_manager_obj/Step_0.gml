@@ -17,14 +17,22 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
     if (wave_clear_timer >= 180) { // 3 secondes de pause
         wave_clear_timer = 0
         wave++
-        mobs_per_wave = 3 + (wave * 2) // +2 mobs par vague
         start_next_wave()
     }
 }
 
 if (game_over) {
+	if (!xp_given) {
+        var _xp_gain = floor(2 + (wave * wave + 1) / 2)
+        with (xp_obj) {
+            xp += _xp_gain
+        }
+        xp_given = true
+    }
+	
     if (mouse_check_button_pressed(mb_any)) {
         game_over = false
+		xp_given = false
         room_goto(MainMenu)
 		var controller = instance_exists(transition_controller_obj) ? instance_find(transition_controller_obj, 0) : noone;
 		if (controller != noone) {

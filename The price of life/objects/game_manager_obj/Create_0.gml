@@ -8,6 +8,7 @@ wave_started = false
 wave_clear_timer = 0    // Pause entre les vagues
 gold = 0
 game_over = false
+xp_given = false
 
 start_next_wave()
 

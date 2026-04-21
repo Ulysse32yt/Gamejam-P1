@@ -40,6 +40,7 @@
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
     {"id":{"name":"title_obj","path":"objects/title_obj/title_obj.yy",},},
     {"id":{"name":"transition_controller_obj","path":"objects/transition_controller_obj/transition_controller_obj.yy",},},
+    {"id":{"name":"xp_obj","path":"objects/xp_obj/xp_obj.yy",},},
     {"id":{"name":"MainMenu","path":"rooms/MainMenu/MainMenu.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"Settings","path":"rooms/Settings/Settings.yy",},},
