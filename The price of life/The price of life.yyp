@@ -30,6 +30,7 @@
     {"id":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},},
     {"id":{"name":"divider_bottom_obj","path":"objects/divider_bottom_obj/divider_bottom_obj.yy",},},
     {"id":{"name":"divider_top_obj","path":"objects/divider_top_obj/divider_top_obj.yy",},},
+    {"id":{"name":"energy__obj","path":"objects/energy__obj/energy__obj.yy",},},
     {"id":{"name":"game_manager_obj","path":"objects/game_manager_obj/game_manager_obj.yy",},},
     {"id":{"name":"gold_obj","path":"objects/gold_obj/gold_obj.yy",},},
     {"id":{"name":"mob_obj","path":"objects/mob_obj/mob_obj.yy",},},
