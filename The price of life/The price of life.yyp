@@ -71,6 +71,7 @@
     {"id":{"name":"rifle_spr","path":"sprites/rifle_spr/rifle_spr.yy",},},
     {"id":{"name":"settings_bg_spr","path":"sprites/settings_bg_spr/settings_bg_spr.yy",},},
     {"id":{"name":"shop_bg_spr","path":"sprites/shop_bg_spr/shop_bg_spr.yy",},},
+    {"id":{"name":"Sprite19","path":"sprites/Sprite19/Sprite19.yy",},},
     {"id":{"name":"sword_spr","path":"sprites/sword_spr/sword_spr.yy",},},
   ],
   "resourceType":"GMProject",
