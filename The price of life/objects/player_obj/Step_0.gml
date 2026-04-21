@@ -22,3 +22,9 @@ y = y+y_speed*move_speed
 if place_meeting(x, y, mob_obj) {
 	instance_destroy()
 }
+
+// Clamp la caméra dans les limites de la room
+var _cam = view_camera[0]
+var _cx = clamp(x - 683, 0, room_width - 1366)
+var _cy = clamp(y - 384, 0, room_height - 768)
+camera_set_view_pos(_cam, _cx, _cy)

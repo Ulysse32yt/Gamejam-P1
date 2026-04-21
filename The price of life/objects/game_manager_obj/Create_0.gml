@@ -6,6 +6,7 @@ spawn_timer = 0
 spawn_delay = 60        // 1 seconde entre chaque spawn
 wave_started = false
 wave_clear_timer = 0    // Pause entre les vagues
+gold = 0
 
 start_next_wave()
 
@@ -17,21 +18,43 @@ function start_next_wave() {
 }
 
 function spawn_mob() {
-    // Spawn sur les bords de la room aléatoirement
+    // Récupère la position actuelle de la caméra
+    var _cam = view_camera[0]
+    var _cx = camera_get_view_x(_cam)
+    var _cy = camera_get_view_y(_cam)
+    var _cw = camera_get_view_width(_cam)
+    var _ch = camera_get_view_height(_cam)
+    
+    // Spawn juste en dehors des bords de la caméra
+    var _margin = 80 // Distance hors écran
     var _side = irandom(3)
     var _sx, _sy
     
     switch (_side) {
-        case 0: _sx = irandom(room_width);  _sy = -32; break         // Haut
-        case 1: _sx = irandom(room_width);  _sy = room_height + 32 break // Bas
-        case 2: _sx = -32;                  _sy = irandom(room_height) break // Gauche
-        case 3: _sx = room_width + 32;      _sy = irandom(room_height) break // Droite
+        case 0: // Haut
+            _sx = _cx + irandom(_cw)
+            _sy = _cy - _margin
+            break
+        case 1: // Bas
+            _sx = _cx + irandom(_cw)
+            _sy = _cy + _ch + _margin
+            break
+        case 2: // Gauche
+            _sx = _cx - _margin
+            _sy = _cy + irandom(_ch)
+            break
+        case 3: // Droite
+            _sx = _cx + _cw + _margin
+            _sy = _cy + irandom(_ch)
+            break
     }
     
-    var _mob = instance_create_layer(_sx, _sy, "Instances", mob_obj)
+    // Garde dans les limites de la room
+    _sx = clamp(_sx, 0, room_width)
+    _sy = clamp(_sy, 0, room_height)
     
-    // Rend les mobs plus forts à chaque vague
-    _mob.hp     = 2 + wave         // +1 PV par vague
-    _mob.hp_max = 2 + wave
-    _mob.move_speed = 1.5 + (wave * 0.1) // De plus en plus rapide
+    var _mob = instance_create_layer(_sx, _sy, "Instances", mob_obj)
+    _mob.hp        = 3 + wave
+    _mob.hp_max    = 3 + wave
+    _mob.move_speed = 1.5 + (wave * 0.15)
 }
