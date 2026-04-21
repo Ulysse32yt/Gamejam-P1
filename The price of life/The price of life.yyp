@@ -38,7 +38,6 @@
     {"id":{"name":"mur_obj","path":"objects/mur_obj/mur_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
-    {"id":{"name":"TESTPOURREPULL","path":"objects/TESTPOURREPULL/TESTPOURREPULL.yy",},},
     {"id":{"name":"title_obj","path":"objects/title_obj/title_obj.yy",},},
     {"id":{"name":"transition_controller_obj","path":"objects/transition_controller_obj/transition_controller_obj.yy",},},
     {"id":{"name":"xp_obj","path":"objects/xp_obj/xp_obj.yy",},},
