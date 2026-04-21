@@ -1,16 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"main_bg_obj",
-  "eventList":[],
+  "%Name":"divider_bottom_obj",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"main_bg_obj",
+  "name":"divider_bottom_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"objets",
     "path":"folders/objets.yy",
   },
   "parentObjectId":null,
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"main_bg_spr",
-    "path":"sprites/main_bg_spr/main_bg_spr.yy",
+    "name":"divider_spr",
+    "path":"sprites/divider_spr/divider_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,
