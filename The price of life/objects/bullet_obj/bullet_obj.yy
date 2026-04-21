@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"rifle_bullet_obj",
+  "%Name":"bullet_obj",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"mob_obj","path":"objects/mob_obj/mob_obj.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"rifle_bullet_obj",
+  "name":"bullet_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"objets",
@@ -32,8 +32,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"rifle_bullet_spr",
-    "path":"sprites/rifle_bullet_spr/rifle_bullet_spr.yy",
+    "name":"bullet_spr",
+    "path":"sprites/bullet_spr/bullet_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,

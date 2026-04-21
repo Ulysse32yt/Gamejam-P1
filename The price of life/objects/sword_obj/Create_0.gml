@@ -18,8 +18,7 @@ function attack() {
 		return
 	}
 	
-	cosinus = (mouse_x - player_obj.x) / (sqrt(sqr(mouse_x-player_obj.x)+sqr(mouse_y-player_obj.y)))
-	angle = radtodeg(arccos(cosinus)) - 90
+	angle = point_direction(x, y, mouse_x, mouse_y) - 90
 	
 	if hand == "right" {
 		angle_origin = angle + 45
