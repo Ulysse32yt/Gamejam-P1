@@ -1,4 +1,9 @@
 damage = 1
+nb_hit = 1 // nombre de coup que l'on peut distribuer en un swing
+nb_hit_left = nb_hit
+
+energy_cost = 3
+money_cost = 10
 
 swinging = false
 angle = 0
@@ -8,12 +13,12 @@ angle_ending = 0
 
 hand = "left"
 
-function start_swing() {
+function attack() {
 	if swinging {
 		return
 	}
 	
-	cosinus = (mouse_x - player_obj.x) / (sqrt((mouse_x-player_obj.x)^2+(mouse_y_player_obj.y)^2))
+	cosinus = (mouse_x - player_obj.x) / (sqrt(sqr(mouse_x-player_obj.x)+sqr(mouse_y-player_obj.y)))
 	angle = radtodeg(arccos(cosinus)) - 90
 	
 	if hand == "right" {
@@ -26,4 +31,12 @@ function start_swing() {
 	
 	image_angle = angle_origin
 	swinging = true
+}
+
+function switch_hands() {
+	if hand == "left" {
+		hand = "right"
+	} else {
+		hand = "left"
+	}
 }

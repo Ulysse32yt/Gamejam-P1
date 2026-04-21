@@ -1,9 +1,11 @@
 if swinging {
-	other.hp -= damage
-
-	if (other.hp <= 0) {
-		// Fait spawner une pièce à la position du mob
-		instance_create_layer(other.x, other.y, "Instances", gold_obj)
-		instance_destroy(other)
+	if nb_hit_left > 0 {
+		other.lose_hp(damage)
+		if hand == "left" {
+			other.x -= 50
+		} else {
+			other.x += 50
+		}
+		nb_hit_left -= 1
 	}
 }

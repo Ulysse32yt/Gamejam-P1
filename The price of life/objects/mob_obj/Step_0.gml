@@ -5,6 +5,6 @@ if (instance_exists(player)) {
 
     Direction = point_direction(x, y, player.x, player.y)
    
-    x += lengthdir_x(moveSpeed, Direction)
-    y += lengthdir_y(moveSpeed, Direction)
+    x += lengthdir_x(move_speed, Direction)
+    y += lengthdir_y(move_speed, Direction)
 }

@@ -19,10 +19,10 @@ var _gui_y = device_mouse_y_to_gui(0);
 
 if mouse_check_button_pressed(mb_left) {								// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
-		if energy_obj.energy > 3.5 {										// Et assez d'énergie :
+		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
 			
 			energy_obj.lose_energy(3.5)									// Perdre de l'énergie
-			instance_create_layer(x, y, "Instances", projectile_obj)	// Tirer un projectile
+			weapon.attack()												// Déclencher l'attaque
 		}	
 	}
 }
@@ -31,6 +31,10 @@ if x_speed != 0 {
 	if energy_obj.energy > 0.1 {
 		energy_obj.lose_energy(0.1)
 		x = x+x_speed*move_speed
+		
+		if (x_speed > 0 and weapon.hand == "left") or (x_speed < 0 and weapon.hand = "right") {
+			weapon.switch_hands()
+		}
 	}
 }
 
@@ -47,6 +51,7 @@ if place_meeting(x, y, mob_obj) {
         game_over = true
     }
 	instance_destroy()
+	instance_destroy(sword_obj)
 }
 
 // Clamp la caméra dans les limites de la room
