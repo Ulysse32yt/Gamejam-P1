@@ -8,6 +8,7 @@ draw_set_color(c_white)
 draw_set_halign(fa_left)
 draw_text(20, 20, "Vague : " + string(wave))
 draw_text(20, 45, "Mobs : " + string(mobs_remaining + mobs_to_spawn))
+draw_text(20, 70, "Gold : " + string(gold))
 
 // Annonce entre les vagues (centre de l'écran)
 if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
