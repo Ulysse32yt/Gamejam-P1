@@ -12,12 +12,35 @@ if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 
 	y_speed = 0
 }
 
-if mouse_check_button_pressed(mb_left) {
-	instance_create_layer(x, y, "Instances", projectile_obj)
+
+
+var _gui_x = device_mouse_x_to_gui(0);
+var _gui_y = device_mouse_y_to_gui(0);
+
+if mouse_check_button_pressed(mb_left) {								// Si click
+	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
+		if energy_obj.energy > 3.5 {										// Et assez d'énergie :
+			
+			energy_obj.lose_energy(3.5)									// Perdre de l'énergie
+			instance_create_layer(x, y, "Instances", projectile_obj)	// Tirer un projectile
+		}	
+	}
 }
 
-x = x+x_speed*move_speed
-y = y+y_speed*move_speed
+if x_speed != 0 {
+	if energy_obj.energy > 0.1 {
+		energy_obj.lose_energy(0.1)
+		x = x+x_speed*move_speed
+	}
+}
+
+if y_speed != 0 {
+	if energy_obj.energy > 0.1 {
+		energy_obj.lose_energy(0.1)
+		y = y+y_speed*move_speed
+	}
+}
+
 
 if place_meeting(x, y, mob_obj) {
 	instance_destroy()
