@@ -10,6 +10,9 @@ gold = 0
 game_over = false
 xp_given = false
 
+nb_mobs_before_sentinel = 2
+counter_mobs_before_sentinel = 0
+
 start_next_wave()
 
 function start_next_wave() {
@@ -56,6 +59,47 @@ function spawn_mob() {
     _sy = clamp(_sy, 0, room_height)
     
     var _mob = instance_create_layer(_sx, _sy, "Instances", mob_obj)
+    _mob.hp        = 2 + (wave*(wave+1))/2
+    _mob.hp_max    = 2 + (wave*(wave+1))/2
+    _mob.move_speed = 1.5 + (wave * 0.15)
+}
+
+function spawn_sentinel() {
+    var _cam = view_camera[0]
+    var _cx = camera_get_view_x(_cam)
+    var _cy = camera_get_view_y(_cam)
+    var _cw = camera_get_view_width(_cam)
+    var _ch = camera_get_view_height(_cam)
+    
+    // Spawn juste en dehors des bords de la caméra
+    var _margin = 80 // Distance hors écran
+    var _side = irandom(3)
+    var _sx, _sy
+    
+    switch (_side) {
+        case 0: // Haut
+            _sx = _cx + irandom(_cw)
+            _sy = _cy - _margin
+            break
+        case 1: // Bas
+            _sx = _cx + irandom(_cw)
+            _sy = _cy + _ch + _margin
+            break
+        case 2: // Gauche
+            _sx = _cx - _margin
+            _sy = _cy + irandom(_ch)
+            break
+        case 3: // Droite
+            _sx = _cx + _cw + _margin
+            _sy = _cy + irandom(_ch)
+            break
+    }
+    
+    // Garde dans les limites de la room
+    _sx = clamp(_sx, 0, room_width)
+    _sy = clamp(_sy, 0, room_height)
+    
+    var _mob = instance_create_layer(_sx, _sy, "Instances", sentinel_obj)
     _mob.hp        = 2 + (wave*(wave+1))/2
     _mob.hp_max    = 2 + (wave*(wave+1))/2
     _mob.move_speed = 1.5 + (wave * 0.15)

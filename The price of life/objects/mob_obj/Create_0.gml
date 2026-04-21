@@ -2,6 +2,10 @@ move_speed = 2
 Direction = 0
 player = 0
 
+attack_cooldown = 60
+cooldown = 0
+
+damage = 1
 hp_max = 1
 hp = 1
 

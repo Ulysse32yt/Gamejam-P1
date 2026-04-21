@@ -17,7 +17,7 @@ if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 
 var _gui_x = device_mouse_x_to_gui(0);
 var _gui_y = device_mouse_y_to_gui(0);
 
-if mouse_check_button(mb_left) {								// Si click
+if mouse_check_button(mb_left) {										// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
 		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
 			weapon.attack()												// Déclencher l'attaque
@@ -44,14 +44,6 @@ if y_speed != 0 {
 	}
 }
 
-
-if place_meeting(x, y, mob_obj) {
-	with (game_manager_obj) {
-        game_over = true
-    }
-	instance_destroy()
-	instance_destroy(weapon)
-}
 
 // Clamp la caméra dans les limites de la room
 var _cam = view_camera[0]

@@ -1,11 +1,21 @@
 // Compte les mobs encore en vie
-mobs_remaining = instance_number(mob_obj)
+mobs_remaining = instance_number(mob_obj) + instance_number(sentinel_obj)
 
 // Spawn progressif des mobs
 if (mobs_to_spawn > 0) {
     spawn_timer--
     if (spawn_timer <= 0) {
-        spawn_mob()
+		if wave >= 2 {
+			if counter_mobs_before_sentinel < nb_mobs_before_sentinel {
+				spawn_mob()
+				counter_mobs_before_sentinel += 1
+			} else {
+				spawn_sentinel()
+				counter_mobs_before_sentinel = 0	
+			}
+		} else {
+			spawn_mob()
+		}
         mobs_to_spawn--
         spawn_timer = spawn_delay
     }

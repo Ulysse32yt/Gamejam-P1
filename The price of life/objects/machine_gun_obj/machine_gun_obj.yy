@@ -31,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"machine_gun_sprite",
-    "path":"sprites/machine_gun_sprite/machine_gun_sprite.yy",
+    "name":"machine_gun_spr",
+    "path":"sprites/machine_gun_spr/machine_gun_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,
