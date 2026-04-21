@@ -24,7 +24,7 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
 
 if (game_over) {
 	if (!xp_given) {
-        var _xp_gain = floor(2 + (wave * wave + 1) / 2)
+        var _xp_gain = floor(1 + (wave * (wave + 1)) / 2)
         with (xp_obj) {
             xp += _xp_gain
         }
