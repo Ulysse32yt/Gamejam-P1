@@ -8,8 +8,11 @@ if (mouse_check_button_pressed(mb_left)) {
     if (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {
 		
 		if energy < max_energy {
-			energy += 5
+			if energy < max_energy - recup {
+				energy += recup
+			} else {
+				energy = max_energy
+			}
 		}
-		
     }
 }

@@ -34,6 +34,9 @@ if (game_over) {
         game_over = false
 		xp_given = false
         room_goto(MainMenu)
-		transition_controller_obj.transition = 0
+		var controller = instance_exists(transition_controller_obj) ? instance_find(transition_controller_obj, 0) : noone;
+		if (controller != noone) {
+			controller.transition = 0;
+		}
     }
 }
