@@ -1,0 +1,11 @@
+{
+  "$GMFolder":"",
+  "%Name":"sprites",
+  "name":"sprites",
+  "parent":{
+    "name":"objets",
+    "path":"folders/objets.yy",
+  },
+  "resourceType":"GMFolder",
+  "resourceVersion":"2.0",
+}

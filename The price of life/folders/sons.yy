@@ -1,0 +1,11 @@
+{
+  "$GMFolder":"",
+  "%Name":"sons",
+  "name":"sons",
+  "parent":{
+    "name":"folders",
+    "path":"folders/folders.yy",
+  },
+  "resourceType":"GMFolder",
+  "resourceVersion":"2.0",
+}
