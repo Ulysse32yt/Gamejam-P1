@@ -51,7 +51,7 @@ if place_meeting(x, y, mob_obj) {
         game_over = true
     }
 	instance_destroy()
-	instance_destroy(sword_obj)
+	instance_destroy(weapon)
 }
 
 // Clamp la caméra dans les limites de la room

@@ -3,7 +3,7 @@ y_speed = 0
 
 move_speed = 5
 
-weapon = sword_obj
+weapon = axe_obj
 
 // Crée et assigne une caméra
 var _cam = camera_create_view(0, 0, 1366, 768, 0, id, -1, -1, -1, -1)

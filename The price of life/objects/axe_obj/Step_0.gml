@@ -8,16 +8,16 @@ if hand == "left" {
 
 if swinging {
 	if hand == "left" {
-		image_angle += 4
+		image_angle += 2
 		if image_angle > angle_ending {
-			image_angle = 0
+			image_angle = 45
 			swinging = false
 			nb_hit_left = nb_hit
 		}
 	} else {
-		image_angle -= 4
+		image_angle -= 2
 		if image_angle < angle_ending {
-			image_angle = 0
+			image_angle = -45
 			swinging = false
 			nb_hit_left = nb_hit
 		}
