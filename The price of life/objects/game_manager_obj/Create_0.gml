@@ -54,7 +54,7 @@ function spawn_mob() {
     _sy = clamp(_sy, 0, room_height)
     
     var _mob = instance_create_layer(_sx, _sy, "Instances", mob_obj)
-    _mob.hp        = 2 + wave
-    _mob.hp_max    = 2 + wave
+    _mob.hp        = 2 + (wave*(wave+1))/2
+    _mob.hp_max    = 2 + (wave*(wave+1))/2
     _mob.move_speed = 1.5 + (wave * 0.15)
 }
