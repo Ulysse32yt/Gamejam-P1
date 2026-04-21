@@ -34,6 +34,7 @@ function switch_hands() {
 	}
 }
 
-if (instance_exists(shop_manager_obj)) {
-    damage += shop_manager_obj.lvl_damage * 1
+// Appliquer les bonus d'amélioration de dégâts
+if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && variable_global_exists("projectile_damage_bonus")) {
+    damage += global.projectile_damage_bonus;
 }

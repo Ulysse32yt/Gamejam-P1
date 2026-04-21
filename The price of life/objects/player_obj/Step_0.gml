@@ -60,9 +60,14 @@ var _cy = clamp(y - 384, 0, room_height - 768)
 camera_set_view_pos(_cam, _cx, _cy)
 
 // application des upgrades
-if (!upgrades_applied && instance_exists(shop_manager_obj) && instance_exists(energy_obj)) {
-    energy_obj.max_energy += shop_manager_obj.lvl_max_energy * 20;
+if (!upgrades_applied && variable_global_exists("upgrades_loaded") && global.upgrades_loaded && instance_exists(energy_obj)) {
+    // Appliquer les bonus du nouveau système JSON
+    if (global.max_energy_bonus != undefined) {
+        energy_obj.max_energy = 100 + global.max_energy_bonus;
+    }
+    if (global.energy_recovery_bonus != undefined) {
+        energy_obj.recup = 5 + global.energy_recovery_bonus;
+    }
     energy_obj.energy = energy_obj.max_energy / 2;
-    energy_obj.recup += shop_manager_obj.lvl_energy_recup * 1;
     upgrades_applied = true;
 }

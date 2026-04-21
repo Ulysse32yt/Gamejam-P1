@@ -1,0 +1,52 @@
+{
+  "ameliorations": [
+    {
+      "id": "lifetime",
+      "nom": "Lifetime",
+      "description": "Augmente la durée de vie des projectiles",
+      "cout": 3,
+      "niveau_max": 5,
+      "niveau_actuel": 0,
+      "effet_par_niveau": 30,
+      "icone": "spr_lifetime",
+      "debloque": true
+    },
+    {
+      "id": "damage",
+      "nom": "Damage",
+      "description": "Augmente les dégâts des projectiles",
+      "cout": 3,
+      "niveau_max": 5,
+      "niveau_actuel": 0,
+      "effet_par_niveau": 5,
+      "icone": "spr_damage",
+      "debloque": true
+    },
+    {
+      "id": "max_energy",
+      "nom": "Max energy",
+      "description": "Augmente l'énergie maximale",
+      "cout": 3,
+      "niveau_max": 5,
+      "niveau_actuel": 0,
+      "effet_par_niveau": 20,
+      "icone": "spr_max_energy",
+      "debloque": true
+    },
+    {
+      "id": "energy_recovery",
+      "nom": "Energy recovery",
+      "description": "Augmente la vitesse de récupération d'énergie",
+      "cout": 3,
+      "niveau_max": 5,
+      "niveau_actuel": 0,
+      "effet_par_niveau": 0.5,
+      "icone": "spr_energy_recovery",
+      "debloque": true
+    }
+  ],
+  "points_amelioration": 0,
+  "niveau_joueur": 1,
+  "experience": 0,
+  "experience_requise": 3
+}

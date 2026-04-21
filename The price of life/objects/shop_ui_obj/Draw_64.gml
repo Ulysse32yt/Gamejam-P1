@@ -3,17 +3,43 @@ var _gui_h = display_get_gui_height()
 var _shop = shop_manager_obj
 var _xp = xp_obj
 
-draw_set_font(-1)
+draw_set_font(title_font)
 
 // Titre
 draw_set_halign(fa_center)
 draw_set_color(c_yellow)
-draw_text_transformed(_gui_w/2, 40, "SHOP", 2, 2, 0)
+draw_text(_gui_w/2, 40, "SHOP")
+
+draw_set_font(-1)
 
 // Données des upgrades
 var _names  = ["Lifetime",        "Damage",       "Max energy",          "Energy Recovery"]
-var _descs  = ["+10 max energy",     "+1 damage",             "+20 max energy",      "+1 recov/sec"]
-var _lvls   = [_shop.lvl_lifetime,    _shop.lvl_damage,       _shop.lvl_max_energy,   _shop.lvl_energy_recup]
+var _descs  = ["+30 lifetime",     "+5 damage",             "+20 max energy",      "+0.5 recov/sec"]
+
+// Récupérer les niveaux depuis le système JSON
+var _lvls = [];
+if (global.upgrades_loaded && global.upgrade_data.ameliorations != undefined) {
+    // Chercher directement dans le tableau d'améliorations
+    for (var i = 0; i < array_length(global.upgrade_data.ameliorations); i++) {
+        var upgrade = global.upgrade_data.ameliorations[i];
+        switch (upgrade.id) {
+            case "lifetime":
+                _lvls[0] = upgrade.niveau_actuel;
+                break;
+            case "damage":
+                _lvls[1] = upgrade.niveau_actuel;
+                break;
+            case "max_energy":
+                _lvls[2] = upgrade.niveau_actuel;
+                break;
+            case "energy_recovery":
+                _lvls[3] = upgrade.niveau_actuel;
+                break;
+        }
+    }
+} else {
+    _lvls = [0, 0, 0, 0];
+}
 
 // Dessin des 4 cartes
 var _card_w = 250
@@ -25,8 +51,11 @@ var _y = _gui_h / 2 - _card_h / 2
 
 for (var i = 0; i < 4; i++) {
     var _x = _start_x + i * (_card_w + _gap)
-    var _cost = _shop.get_cost(_lvls[i])
-    var _can_afford = (_xp.xp >= _cost)
+    
+    // Calculer le coût avec le nouveau système
+    var _upgrade_ids = ["lifetime", "damage", "max_energy", "energy_recovery"];
+    var _cost = _shop.get_upgrade_cost(_upgrade_ids[i]);
+    var _can_afford = (global.upgrades_loaded && global.upgrade_data.points_amelioration >= _cost)
     
     // Fond de la carte
     if (selected == i) {
@@ -55,7 +84,7 @@ for (var i = 0; i < 4; i++) {
     
     // Coût
     draw_set_color(_can_afford ? c_yellow : c_red)
-    draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " XP")
+    draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " pts")
 }
 
 var _btn_w = 160

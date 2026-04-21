@@ -7,7 +7,7 @@ draw_sprite_ext(
     y,
     -floor(image_xscale/3),
     floor(image_yscale/3),
-    35,
+    angle,
     c_white,
     1
 )
