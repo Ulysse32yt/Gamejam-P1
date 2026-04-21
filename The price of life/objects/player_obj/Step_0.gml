@@ -4,11 +4,11 @@ y_speed = keyboard_check(vk_down) - keyboard_check(vk_up)
 x_speed = keyboard_check(ord("D")) - (keyboard_check(ord("Q")) or keyboard_check(ord("A")))
 y_speed = keyboard_check(ord("S")) - (keyboard_check(ord("Z")) or keyboard_check(ord("W")))
 
-if place_meeting(x+x_speed*move_speed, y, mur_obj) {
+if place_meeting(x+x_speed*move_speed, y, mur_obj) or (x + x_speed*move_speed < 0) or (x + x_speed*move_speed > room_width) {
 	x_speed = 0
 }
 
-if place_meeting(x, y+y_speed*move_speed, mur_obj) {
+if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 0) or (y + y_speed*move_speed > room_height) {
 	y_speed = 0
 }
 
