@@ -26,6 +26,9 @@ if (game_over) {
     if (mouse_check_button_pressed(mb_any)) {
         game_over = false
         room_goto(MainMenu)
-		transition_controller_obj.transition = 0
+		var controller = instance_exists(transition_controller_obj) ? instance_find(transition_controller_obj, 0) : noone;
+		if (controller != noone) {
+			controller.transition = 0;
+		}
     }
 }
