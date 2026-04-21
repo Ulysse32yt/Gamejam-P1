@@ -27,6 +27,7 @@
     {"id":{"name":"button_font","path":"fonts/button_font/button_font.yy",},},
     {"id":{"name":"defaite_font","path":"fonts/defaite_font/defaite_font.yy",},},
     {"id":{"name":"title_font","path":"fonts/title_font/title_font.yy",},},
+    {"id":{"name":"xp_font","path":"fonts/xp_font/xp_font.yy",},},
     {"id":{"name":"back_button_obj","path":"objects/back_button_obj/back_button_obj.yy",},},
     {"id":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},},
     {"id":{"name":"divider_bottom_obj","path":"objects/divider_bottom_obj/divider_bottom_obj.yy",},},
