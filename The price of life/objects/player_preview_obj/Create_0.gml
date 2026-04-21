@@ -14,7 +14,7 @@ switch (irandom(3)) {
 		angle = 37
         break;
     case 3:
-        weapon = machine_gun_sprite
+        weapon = machine_gun_spr
 		angle = 0
         break;
 }
