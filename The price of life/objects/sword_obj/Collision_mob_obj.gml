@@ -1,7 +1,7 @@
 if swinging {
 	if nb_hit_left > 0 {
 		other.lose_hp(damage)
-		if hand == "left" {
+		if other.x < x {
 			other.x -= 50
 		} else {
 			other.x += 50

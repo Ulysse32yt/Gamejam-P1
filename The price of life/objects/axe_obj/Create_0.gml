@@ -1,4 +1,4 @@
-damage = 2
+damage = 3
 nb_hit = 3
 nb_hit_left = nb_hit
 
@@ -33,6 +33,7 @@ function attack() {
 	
 	image_angle = angle_origin
 	swinging = true
+	energy_obj.energy -= energy_cost
 }
 
 function switch_hands() {
