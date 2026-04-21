@@ -1,7 +1,7 @@
 var _gui_w = display_get_gui_width()
 var _gui_h = display_get_gui_height()
 
-draw_set_font(-1)
+draw_set_font(defaite_font)
 draw_set_color(c_white)
 
 // Vague en haut à gauche
@@ -38,7 +38,7 @@ if (game_over) {
     // Titre "Défaite"
     draw_set_halign(fa_center);
     draw_set_color(c_red);
-    draw_text_transformed(_gui_w / 2, _gui_h / 2 - 60, "DÉFAITE", 3, 3, 0);
+    draw_text_transformed(_gui_w / 2, _gui_h / 2 - 60, "DEFAITE", 3, 3, 0);
     
     // Sous-titre
     draw_set_color(c_white);
