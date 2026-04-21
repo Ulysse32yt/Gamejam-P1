@@ -31,6 +31,7 @@ function attack() {
 	
 	image_angle = angle_origin
 	swinging = true
+	energy_obj.energy -= energy_cost
 }
 
 function switch_hands() {
