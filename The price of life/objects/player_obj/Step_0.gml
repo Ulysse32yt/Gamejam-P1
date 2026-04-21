@@ -43,6 +43,9 @@ if y_speed != 0 {
 
 
 if place_meeting(x, y, mob_obj) {
+	with (game_manager_obj) {
+        game_over = true
+    }
 	instance_destroy()
 }
 

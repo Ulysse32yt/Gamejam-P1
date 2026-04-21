@@ -7,6 +7,7 @@ spawn_delay = 60        // 1 seconde entre chaque spawn
 wave_started = false
 wave_clear_timer = 0    // Pause entre les vagues
 gold = 0
+game_over = false
 
 start_next_wave()
 
