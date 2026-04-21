@@ -33,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"energy_sprite",
-    "path":"sprites/energy_sprite/energy_sprite.yy",
+    "name":"energy_spr",
+    "path":"sprites/energy_spr/energy_spr.yy",
   },
   "spriteMaskId":null,
   "visible":true,
