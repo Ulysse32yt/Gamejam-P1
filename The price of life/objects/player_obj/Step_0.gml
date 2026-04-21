@@ -20,6 +20,9 @@ x = x+x_speed*move_speed
 y = y+y_speed*move_speed
 
 if place_meeting(x, y, mob_obj) {
+	with (game_manager_obj) {
+        game_over = true
+    }
 	instance_destroy()
 }
 

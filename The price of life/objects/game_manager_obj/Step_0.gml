@@ -21,3 +21,11 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
         start_next_wave()
     }
 }
+
+if (game_over) {
+    if (mouse_check_button_pressed(mb_any)) {
+        game_over = false
+        room_goto(MainMenu)
+		transition_controller_obj.transition = 0
+    }
+}
