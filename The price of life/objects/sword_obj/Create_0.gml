@@ -40,3 +40,7 @@ function switch_hands() {
 		hand = "left"
 	}
 }
+
+if (instance_exists(shop_manager_obj)) {
+    damage += shop_manager_obj.lvl_damage * 1
+}

@@ -39,6 +39,8 @@
     {"id":{"name":"mur_obj","path":"objects/mur_obj/mur_obj.yy",},},
     {"id":{"name":"player_obj","path":"objects/player_obj/player_obj.yy",},},
     {"id":{"name":"projectile_obj","path":"objects/projectile_obj/projectile_obj.yy",},},
+    {"id":{"name":"shop_manager_obj","path":"objects/shop_manager_obj/shop_manager_obj.yy",},},
+    {"id":{"name":"shop_ui_obj","path":"objects/shop_ui_obj/shop_ui_obj.yy",},},
     {"id":{"name":"sword_obj","path":"objects/sword_obj/sword_obj.yy",},},
     {"id":{"name":"title_obj","path":"objects/title_obj/title_obj.yy",},},
     {"id":{"name":"transition_controller_obj","path":"objects/transition_controller_obj/transition_controller_obj.yy",},},
