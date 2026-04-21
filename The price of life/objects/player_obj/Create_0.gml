@@ -3,7 +3,7 @@ y_speed = 0
 
 move_speed = 5
 
-weapon = axe_obj
+weapon = instance_create_layer(x, y, "Instances", axe_obj)
 
 upgrades_applied = false
 

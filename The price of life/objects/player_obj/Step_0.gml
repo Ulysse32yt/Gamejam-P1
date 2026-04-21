@@ -17,15 +17,14 @@ if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 
 var _gui_x = device_mouse_x_to_gui(0);
 var _gui_y = device_mouse_y_to_gui(0);
 
-if mouse_check_button_pressed(mb_left) {								// Si click
+if mouse_check_button(mb_left) {								// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
 		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
-			
-			energy_obj.lose_energy(3.5)									// Perdre de l'énergie
 			weapon.attack()												// Déclencher l'attaque
 		}	
 	}
 }
+
 
 if x_speed != 0 {
 	if energy_obj.energy > 0.1 {
