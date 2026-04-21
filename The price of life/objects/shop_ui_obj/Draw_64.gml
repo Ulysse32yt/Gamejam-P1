@@ -58,5 +58,20 @@ for (var i = 0; i < 4; i++) {
     draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " XP")
 }
 
+var _btn_w = 160
+var _btn_h = 50
+var _btn_x = 30
+var _btn_y = _gui_h - 80
+
+var _gui_mx = device_mouse_x_to_gui(0)
+var _gui_my = device_mouse_y_to_gui(0)
+var _hover = point_in_rectangle(_gui_mx, _gui_my, _btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h)
+
+draw_set_color(_hover ? c_yellow : make_color_rgb(40, 40, 40))
+draw_rectangle(_btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h, false)
+draw_set_color(_hover ? c_black : c_white)
+draw_set_halign(fa_center)
+draw_text_transformed(_btn_x + _btn_w/2, _btn_y + 12, "< Retour", 1.1, 1.1, 0)
+
 draw_set_halign(fa_left)
 draw_set_color(c_white)
