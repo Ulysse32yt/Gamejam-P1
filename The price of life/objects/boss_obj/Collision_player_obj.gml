@@ -1,0 +1,1 @@
+other.lose_hp(damage)
