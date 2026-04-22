@@ -115,7 +115,9 @@ function get_upgrade_cost(upgrade_id) {
     
     if (upgrade.niveau_actuel >= upgrade.niveau_max) return 0;
     
-    return upgrade.cout * (upgrade.niveau_actuel + 1);
+    var cost = upgrade.cout * (upgrade.niveau_actuel + 1);
+    show_debug_message("Cost for " + upgrade_id + ": " + string(cost) + " (base: " + string(upgrade.cout) + ", level: " + string(upgrade.niveau_actuel) + ")");
+    return cost;
 }
 
 // Fonction pour acheter une amélioration
@@ -123,23 +125,26 @@ function buy_upgrade(upgrade_id) {
     var upgrade = find_upgrade_by_id(upgrade_id);
     if (!upgrade) return false;
     
-    var cost = get_upgrade_cost(upgrade_id);
-    var xp = 0;
-    
-    // Vérifier si player_xp existe, sinon utiliser l'XP depuis les données
-    if (variable_global_exists("player_xp")) {
-        xp = global.player_xp;
-    } else if (instance_exists(xp_obj)) {
-        xp = xp_obj.xp;
+    // Vérifier si le niveau maximum est atteint
+    if (upgrade.niveau_actuel >= 20) {
+        show_debug_message("Upgrade " + upgrade_id + " is already at max level (20)");
+        return false;
     }
     
-    if (xp >= cost) {
+    var cost = get_upgrade_cost(upgrade_id);
+    
+    // Vérifier si xp_obj existe
+    if (!instance_exists(xp_obj)) {
+        show_debug_message("XP object not found!");
+        return false;
+    }
+    
+    show_debug_message("Before purchase - XP: " + string(xp_obj.xp) + ", Cost: " + string(cost));
+    
+    if (xp_obj.xp >= cost) {
         // Déduire l'XP
-        if (variable_global_exists("player_xp")) {
-            global.player_xp -= cost;
-        } else if (instance_exists(xp_obj)) {
-            xp_obj.xp -= cost;
-        }
+        xp_obj.xp -= cost;
+        show_debug_message("After purchase - XP: " + string(xp_obj.xp));
         
         upgrade.niveau_actuel++;
         show_debug_message("Upgrade level increased to: " + string(upgrade.niveau_actuel));
@@ -152,9 +157,7 @@ function buy_upgrade(upgrade_id) {
         save_upgrades();
         show_debug_message("Upgrade data saved. New level: " + string(upgrade.niveau_actuel));
         
-        if (instance_exists(xp_obj)) {
-            xp_obj.save_player_data();
-        }
+        xp_obj.save_player_data();
         
         return true;
     }
@@ -171,10 +174,45 @@ function apply_upgrade_effect(upgrade_id) {
     
     switch (upgrade_id) {
         case "lifetime":
-            global.projectile_lifetime_bonus = upgrade.niveau_actuel * upgrade.effet_par_niveau;
+            global.health_bonus = upgrade.niveau_actuel * 2;
+            // Update player health if player exists
+            if (instance_exists(player_obj)) {
+                var player = instance_find(player_obj, 0);
+                player.hp_max = 2 + global.health_bonus;
+                player.hp = player.hp_max;
+            }
             break;
         case "damage":
-            global.projectile_damage_bonus = upgrade.niveau_actuel * upgrade.effet_par_niveau;
+            global.projectile_damage_bonus = upgrade.niveau_actuel * 1;
+            show_debug_message("Damage upgrade applied: " + string(global.projectile_damage_bonus) + " (level: " + string(upgrade.niveau_actuel) + ")");
+            
+            // Update all existing weapons
+            // Update player's current weapon
+            if (instance_exists(player_obj)) {
+                var player = instance_find(player_obj, 0);
+                if (player.weapon != noone) {
+                    var base_damage = get_base_damage(player.weapon.object_index);
+                    player.weapon.damage = base_damage + global.projectile_damage_bonus;
+                    show_debug_message("Updated player weapon damage to: " + string(player.weapon.damage) + " (base: " + string(base_damage) + ")");
+                }
+            }
+            
+            // Update standalone weapon instances
+            if (instance_exists(axe_obj)) {
+                var axe = instance_find(axe_obj, 0);
+                axe.damage = 3 + global.projectile_damage_bonus;
+                show_debug_message("Updated axe damage to: " + string(axe.damage));
+            }
+            if (instance_exists(rifle_obj)) {
+                var rifle = instance_find(rifle_obj, 0);
+                rifle.damage = 8 + global.projectile_damage_bonus;
+                show_debug_message("Updated rifle damage to: " + string(rifle.damage));
+            }
+            if (instance_exists(machine_gun_obj)) {
+                var mg = instance_find(machine_gun_obj, 0);
+                mg.damage = 1 + global.projectile_damage_bonus;
+                show_debug_message("Updated machine gun damage to: " + string(mg.damage));
+            }
             break;
         case "max_energy":
             global.max_energy_bonus = upgrade.niveau_actuel * upgrade.effet_par_niveau;
@@ -189,6 +227,7 @@ function apply_upgrade_effect(upgrade_id) {
             break;
         case "energy_recovery":
             global.energy_recovery_bonus = upgrade.niveau_actuel * upgrade.effet_par_niveau;
+            show_debug_message("Energy recovery upgrade applied: " + string(global.energy_recovery_bonus) + " (level: " + string(upgrade.niveau_actuel) + ")");
             if (instance_exists(energy_obj)) {
                 var energy = instance_find(energy_obj, 0);
                 energy.recup = 5 + global.energy_recovery_bonus;
@@ -199,12 +238,28 @@ function apply_upgrade_effect(upgrade_id) {
     show_debug_message("Applied upgrade effect: " + upgrade_id + " (Level " + string(upgrade.niveau_actuel) + ")");
 }
 
+// Fonction pour obtenir les dégâts de base selon le type d'arme
+function get_base_damage(weapon_object_index) {
+    switch (weapon_object_index) {
+        case sword_obj:
+            return 1;
+        case axe_obj:
+            return 3;
+        case rifle_obj:
+            return 8;
+        case machine_gun_obj:
+            return 1;
+        default:
+            return 1;
+    }
+}
+
 // Fonction pour appliquer tous les effets d'amélioration (au chargement)
 function apply_all_upgrade_effects() {
     if (!global.upgrades_loaded) return
     
     // Réinitialiser les bonus
-    global.projectile_lifetime_bonus = 0
+    global.health_bonus = 0
     global.projectile_damage_bonus = 0
     global.max_energy_bonus = 0
     global.energy_recovery_bonus = 0

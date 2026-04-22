@@ -9,8 +9,8 @@ function apply_upgrade_effect(upgrade_id) {
     
     switch (upgrade_id) {
         case "lifetime":
-            // Augmenter la durée de vie des projectiles
-            global.projectile_lifetime_bonus = upgrade.niveau_actuel * upgrade.effet_par_niveau;
+            // Augmenter les points de vie du joueur
+            global.health_bonus = upgrade.niveau_actuel * 2;
             break;
             
         case "damage":

@@ -1,4 +1,4 @@
-hp_max = 2 + global.lvl_hp
+hp_max = 2 + (variable_global_exists("health_bonus") ? global.health_bonus : 0)
 hp = hp_max
 
 x_speed = 0

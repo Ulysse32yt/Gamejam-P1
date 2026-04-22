@@ -1,4 +1,4 @@
-damage = 8+global.lvl_damage
+damage = 8 + (variable_global_exists("projectile_damage_bonus") ? global.projectile_damage_bonus : 0)
 bullet_speed = 20
 reload_time = 60 // 60 frame soit une seconde
 reloading = 0

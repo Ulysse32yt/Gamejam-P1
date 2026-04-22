@@ -1,4 +1,4 @@
-damage = 1
+damage = 1 + (variable_global_exists("projectile_damage_bonus") ? global.projectile_damage_bonus : 0)
 bullet_speed = 15
 reload_time = 6 // 12 frames soit 5 balles /s
 reloading = 0

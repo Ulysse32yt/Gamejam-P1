@@ -13,8 +13,8 @@ draw_text(_gui_w/2, 40, "SHOP")
 draw_set_font(-1)
 
 // Données des upgrades
-var _names  = ["Lifetime",        "Damage",       "Max energy",          "Energy Recovery"]
-var _descs  = ["+30 lifetime",     "+5 damage",             "+20 max energy",      "+0.5 recov/sec"]
+var _names  = ["Health",          "Damage",       "Max energy",          "Energy Recovery"]
+var _descs  = ["+30 HP",           "+5 damage",             "+20 max energy",      "+0.5 recov/sec"]
 
 // Récupérer les niveaux depuis le système JSON
 var _lvls = [];
@@ -55,11 +55,18 @@ for (var i = 0; i < 4; i++) {
     // Calculer le coût avec le nouveau système
     var _upgrade_ids = ["lifetime", "damage", "max_energy", "energy_recovery"];
     var _cost = _shop.get_upgrade_cost(_upgrade_ids[i]);
-    var _can_afford = (global.upgrades_loaded && global.upgrade_data.points_amelioration >= _cost)
+    var _player_xp = instance_exists(xp_obj) ? xp_obj.xp : 0;
+    var _can_afford = (global.upgrades_loaded && _player_xp >= _cost)
+    var _upgrade = _shop.find_upgrade_by_id(_upgrade_ids[i]);
+    var _is_max_level = (_upgrade && _upgrade.niveau_actuel >= 20);
     
     // Fond de la carte
     if (selected == i) {
         draw_set_color(c_dkgray)
+    } else if (_is_max_level) {
+        draw_set_color(make_color_rgb(80, 40, 40)) // Rouge foncé quand niveau max
+    } else if (_can_afford) {
+        draw_set_color(make_color_rgb(60, 80, 40)) // Vert foncé quand assez d'XP
     } else {
         draw_set_color(make_color_rgb(40, 40, 40))
     }
@@ -83,8 +90,13 @@ for (var i = 0; i < 4; i++) {
     draw_text(_x + _card_w/2, _y + 85, "Level : " + string(_lvls[i]))
     
     // Coût
-    draw_set_color(_can_afford ? c_yellow : c_red)
-    draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " pts")
+    if (_is_max_level) {
+        draw_set_color(c_red)
+        draw_text(_x + _card_w/2, _y + 115, "MAX LEVEL")
+    } else {
+        draw_set_color(_can_afford ? c_yellow : c_red)
+        draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " pts")
+    }
 }
 
 var _btn_w = 160

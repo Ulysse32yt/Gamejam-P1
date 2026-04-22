@@ -74,36 +74,24 @@ if mouse_check_button_released(mb_left) {
 			// Utiliser le nouveau système JSON
 			var _upgrade_ids = ["lifetime", "damage", "max_energy", "energy_recovery"];
 			var _cost = _shop.get_upgrade_cost(_upgrade_ids[i]);
-			var _points = 0;
+			var _player_xp = instance_exists(xp_obj) ? xp_obj.xp : 0;
 			
-			// Vérifier si player_xp existe, sinon utiliser l'XP depuis les données
-			if (variable_global_exists("player_xp")) {
-				_points = global.player_xp;
-			} else if (instance_exists(xp_obj)) {
-				_points = xp_obj.xp;
-			}
+			// Vérifier si le niveau maximum est atteint
+			var _upgrade = _shop.find_upgrade_by_id(_upgrade_ids[i]);
+			var _is_max_level = (_upgrade && _upgrade.niveau_actuel >= 20);
 			
-			show_debug_message("Upgrade: " + _upgrade_ids[i] + ", Cost: " + string(_cost) + ", Player XP: " + string(_points));
+			show_debug_message("Upgrade: " + _upgrade_ids[i] + ", Cost: " + string(_cost) + ", Player XP: " + string(_player_xp) + ", Max Level: " + string(_is_max_level));
         
-			if (_points >= _cost) {
-				// Acheter l'amélioration avec le nouveau système
-				show_debug_message("Attempting to buy upgrade: " + _upgrade_ids[i]);
-				if (_shop.buy_upgrade(_upgrade_ids[i])) {
-					// L'amélioration a été achetée avec succès
-					show_debug_message("Upgrade purchased successfully: " + _upgrade_ids[i]);
-					
-					// Sauvegarder toutes les données après l'achat
-					if (instance_exists(xp_obj)) {
-						xp_obj.save_player_data();
-					}
-					if (instance_exists(_shop)) {
-						_shop.save_upgrades();
-					}
-				} else {
-					show_debug_message("Failed to purchase upgrade: " + _upgrade_ids[i]);
+			if (!_is_max_level && _player_xp >= _cost) {
+				_shop.buy_upgrade(_upgrade_ids[i]);
+				if (instance_exists(xp_obj)) {
+					xp_obj.save_player_data();
+				}
+				if (instance_exists(_shop)) {
+					_shop.save_upgrades();
 				}
 			} else {
-				show_debug_message("Not enough points for upgrade: " + _upgrade_ids[i]);
+				show_debug_message("Cannot purchase upgrade: " + _upgrade_ids[i]);
 			}
 		}
 	}

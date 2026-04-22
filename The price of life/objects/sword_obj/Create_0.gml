@@ -1,4 +1,5 @@
-damage = 1 + global.lvl_damage
+damage = 1 + (variable_global_exists("projectile_damage_bonus") ? global.projectile_damage_bonus : 0);
+show_debug_message("Sword created with damage: " + string(damage) + " (bonus: " + string(variable_global_exists("projectile_damage_bonus") ? global.projectile_damage_bonus : 0) + ")");
 nb_hit = 1 // nombre de coup que l'on peut distribuer en un swing
 nb_hit_left = nb_hit
 

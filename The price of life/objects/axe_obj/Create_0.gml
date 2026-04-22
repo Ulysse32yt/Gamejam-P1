@@ -1,4 +1,4 @@
-damage = 3+global.lvl_damage
+damage = 3 + (variable_global_exists("projectile_damage_bonus") ? global.projectile_damage_bonus : 0)
 nb_hit = 3
 nb_hit_left = nb_hit
 
