@@ -1,13 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"settings_ui_obj",
+  "%Name":"data_init_obj",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"settings_ui_obj",
+  "name":"data_init_obj",
   "overriddenProperties":[],
   "parent":{
     "name":"objets",
@@ -22,7 +20,7 @@
   "physicsKinematic":false,
   "physicsLinearDamping":0.1,
   "physicsObject":false,
-  "physicsRestitution":0.1,
+  "physicsRestitution":0.5,
   "physicsSensor":false,
   "physicsShape":1,
   "physicsShapePoints":[],

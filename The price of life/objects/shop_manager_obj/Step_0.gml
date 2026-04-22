@@ -21,7 +21,7 @@ if (!variable_global_exists("player_level")) {
 
 // Charger les améliorations depuis le JSON
 function load_upgrades() {
-    var file_path = "datafiles/ameliorations.json";
+    var file_path = "ameliorations.json";
     if (file_exists(file_path)) {
         var file = file_text_open_read(file_path);
         if (file != -1) {
@@ -47,7 +47,7 @@ function save_upgrades() {
     
     show_debug_message("Saving upgrades to file...");
     // Utiliser le répertoire du projet pour une sauvegarde permanente
-    var file_path = "datafiles\\ameliorations.json";
+    var file_path = "ameliorations.json";
     show_debug_message("Project file path: " + file_path);
     
     // Afficher les niveaux actuels avant sauvegarde
