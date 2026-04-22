@@ -11,9 +11,9 @@ draw_set_color(c_yellow)
 draw_text_transformed(_gui_w/2, 40, "SHOP", 2, 2, 0)
 
 // Données des upgrades
-var _names  = ["Lifetime",        "Damage",       "Max energy",          "Energy Recovery"]
-var _descs  = ["+10 max energy",     "+1 damage",             "+20 max energy",      "+1 recov/sec"]
-var _lvls   = [_shop.lvl_lifetime,    _shop.lvl_damage,       _shop.lvl_max_energy,   _shop.lvl_energy_recup]
+var _names  = ["Hit points",        "Damage",       "Max energy",          "Energy Recovery"]
+var _descs  = ["+1 max hit point",     "+1 damage",             "+20 max energy",      "+5 recov/click"]
+var _lvls   = [global.lvl_hp, global.lvl_damage, global.lvl_max_energy, global.lvl_energy_recup]
 
 // Dessin des 4 cartes
 var _card_w = 250

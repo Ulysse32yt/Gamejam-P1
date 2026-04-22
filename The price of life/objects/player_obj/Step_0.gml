@@ -21,7 +21,9 @@ if mouse_check_button(mb_left) {										// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
 		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
 			weapon.attack()												// Déclencher l'attaque
-		}	
+		} else {
+			energy_obj.print_not_enough_energy()	
+		}
 	}
 }
 
@@ -34,6 +36,8 @@ if x_speed != 0 {
 		if (x_speed > 0 and weapon.hand == "left") or (x_speed < 0 and weapon.hand = "right") {
 			weapon.switch_hands()
 		}
+	} else {
+		energy_obj.print_not_enough_energy()
 	}
 }
 
@@ -51,10 +55,6 @@ var _cx = clamp(x - 683, 0, room_width - 1366)
 var _cy = clamp(y - 384, 0, room_height - 768)
 camera_set_view_pos(_cam, _cx, _cy)
 
-// application des upgrades
-if (!upgrades_applied && instance_exists(shop_manager_obj) && instance_exists(energy_obj)) {
-    energy_obj.max_energy += shop_manager_obj.lvl_max_energy * 20;
-    energy_obj.energy = energy_obj.max_energy / 2;
-    energy_obj.recup += shop_manager_obj.lvl_energy_recup * 1;
-    upgrades_applied = true;
+if cooldown_damage > 0 {
+	cooldown_damage -= 1	
 }

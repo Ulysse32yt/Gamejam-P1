@@ -14,7 +14,3 @@ if (instance_exists(player)) {
 		image_xscale = 1	
 	}
 }
-
-if cooldown > 0 {
-	cooldown -= 1	
-}

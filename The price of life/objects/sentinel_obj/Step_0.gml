@@ -32,8 +32,3 @@ if (instance_exists(player)) {
 		_bullet.image_angle = _bullet.direction
 	}
 }
-
-
-if cooldown > 0 {
-	cooldown -= 1	
-}

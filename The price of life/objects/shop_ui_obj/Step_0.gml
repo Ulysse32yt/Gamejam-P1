@@ -17,7 +17,6 @@ if mouse_check_button_released(mb_left) {
 	var _btn_w = 160
 	var _btn_h = 50
 	var _btn_x = 30
-	var _btn_y = display_get_gui_height() - 80
 
 	if point_in_rectangle(_gui_mx, _gui_my, _btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h) {
 		room_goto(MainMenu)
@@ -28,17 +27,17 @@ if mouse_check_button_released(mb_left) {
 		var _x = _start_x + i * (_card_w + _gap)
     
 		if point_in_rectangle(_gui_mx, _gui_my, _x, _y, _x + _card_w, _y + _card_h) {
-			var _lvls = [_shop.lvl_lifetime, _shop.lvl_damage, _shop.lvl_max_energy, _shop.lvl_energy_recup]
+			var _lvls = [global.lvl_hp, global.lvl_damage, global.lvl_max_energy, global.lvl_energy_recup]
 			var _cost = _shop.get_cost(_lvls[i])
         
 			if (_xp.xp >= _cost) {
 				_xp.xp -= _cost
             
 				switch(i) {
-					case 0: _shop.lvl_lifetime++;    break
-					case 1: _shop.lvl_damage++;      break
-					case 2: _shop.lvl_max_energy++;  break
-					case 3: _shop.lvl_energy_recup++; break
+					case 0: global.lvl_hp++;    break
+					case 1: global.lvl_damage++;      break
+					case 2: global.lvl_max_energy++;  break
+					case 3: global.lvl_energy_recup++; break
 				}
 			}
 		}

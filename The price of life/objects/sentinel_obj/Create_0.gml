@@ -3,8 +3,6 @@ Direction = 0
 player = 0
 
 damage = 1
-attack_cooldown = 60
-cooldown = 0
 reload_time = 180
 reloading = 0
 

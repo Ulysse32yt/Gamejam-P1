@@ -1,4 +1,4 @@
-damage = 1
+damage = 1 + global.lvl_damage
 bullet_speed = 15
 reload_time = 6 // 12 frames soit 5 balles /s
 reloading = 0
@@ -32,8 +32,4 @@ function switch_hands() {
 	} else {
 		hand = "left"
 	}
-}
-
-if (instance_exists(shop_manager_obj)) {
-    damage += shop_manager_obj.lvl_damage * 1
 }
