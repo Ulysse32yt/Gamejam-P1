@@ -32,6 +32,31 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
     }
 }
 
+
+if instance_exists(player_obj) {
+	if gold >= 5 and not player_obj.weapons_unlocked[$ "2"] {
+		player_obj.weapons_unlocked[$ "2"] = true
+		draw_event_cooldown = 120
+		event_text = "hache debloquee !"
+	}
+	if gold >= 10 and not player_obj.weapons_unlocked[$ "3"] {
+		player_obj.weapons_unlocked[$ "3"] = true
+		draw_event_cooldown = 120
+		event_text = "fusil debloque !"
+	}
+	if gold >= 20 and not player_obj.weapons_unlocked[$ "4"] {
+		player_obj.weapons_unlocked[$ "4"] = true
+		draw_event_cooldown = 120
+		event_text = "mitrailleuse debloquee !"
+	}
+}
+
+
+if draw_event_cooldown > 0 {
+	draw_event_cooldown -= 1
+}
+
+
 if (game_over) {
 	if (!xp_given) {
         var _xp_gain = floor(1 + (wave * (wave + 1)) / 2)

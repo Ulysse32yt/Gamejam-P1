@@ -12,7 +12,15 @@ if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 
 	y_speed = 0
 }
 
-
+if keyboard_check(ord("1")) {
+	switch_weapon(1)
+} else if keyboard_check(ord("2")) {
+	switch_weapon(2)	
+} else if keyboard_check(ord("3")) {
+	switch_weapon(3)	
+} else if keyboard_check(ord("4")) {
+	switch_weapon(4)	
+}
 
 var _gui_x = device_mouse_x_to_gui(0);
 var _gui_y = device_mouse_y_to_gui(0);
@@ -21,7 +29,9 @@ if mouse_check_button(mb_left) {										// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
 		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
 			weapon.attack()												// Déclencher l'attaque
-		}	
+		} else {
+			energy_obj.print_not_enough_energy()
+		}
 	}
 }
 

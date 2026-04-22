@@ -201,25 +201,25 @@ function apply_upgrade_effect(upgrade_id) {
 
 // Fonction pour appliquer tous les effets d'amélioration (au chargement)
 function apply_all_upgrade_effects() {
-    if (!global.upgrades_loaded) return;
+    if (!global.upgrades_loaded) return
     
     // Réinitialiser les bonus
-    global.projectile_lifetime_bonus = 0;
-    global.projectile_damage_bonus = 0;
-    global.max_energy_bonus = 0;
-    global.energy_recovery_bonus = 0;
+    global.projectile_lifetime_bonus = 0
+    global.projectile_damage_bonus = 0
+    global.max_energy_bonus = 0
+    global.energy_recovery_bonus = 0
     
     // Appliquer chaque amélioration
     for (var i = 0; i < array_length(global.upgrade_data.ameliorations); i++) {
-        var upgrade = global.upgrade_data.ameliorations[i];
+        var upgrade = global.upgrade_data.ameliorations[i]
         if (upgrade.niveau_actuel > 0) {
-            apply_upgrade_effect(upgrade.id);
+            apply_upgrade_effect(upgrade.id)
         }
     }
 }
 
 // Initialiser les bonus
-global.projectile_lifetime_bonus = 0;
-global.projectile_damage_bonus = 0;
-global.max_energy_bonus = 0;
-global.energy_recovery_bonus = 0;
+global.projectile_lifetime_bonus = 0
+global.projectile_damage_bonus = 0
+global.max_energy_bonus = 0
+global.energy_recovery_bonus = 0
