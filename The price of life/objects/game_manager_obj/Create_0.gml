@@ -13,6 +13,8 @@ xp_given = false
 nb_mobs_before_sentinel = 2
 counter_mobs_before_sentinel = 0
 
+draw_event_cooldown = 0
+event_text = ""
 start_next_wave()
 
 function start_next_wave() {

@@ -1,4 +1,4 @@
-damage = 1 + lvl_damage
+damage = 1 + global.lvl_damage
 nb_hit = 1 // nombre de coup que l'on peut distribuer en un swing
 nb_hit_left = nb_hit
 

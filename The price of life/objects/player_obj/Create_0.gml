@@ -14,8 +14,8 @@ cooldown_damage = 0
 
 move_speed = 5
 
-weapon = instance_create_layer(x, y, "weapons", machine_gun_obj)
-
+weapon = instance_create_layer(x, y, "weapons", sword_obj)
+weapons_unlocked = {"1": true,"2": false, "3": false, "4": false}
 
 // Crée et assigne une caméra
 var _cam = camera_create_view(0, 0, 1366, 768, 0, id, -1, -1, -1, -1)
@@ -35,5 +35,27 @@ function lose_hp(number) {
 			}
 		}
 		cooldown_damage = cooldown_damage_total
+	}
+}
+
+function switch_weapon(key) {
+	if not weapons_unlocked[$ string(key)] {
+		return
+	}
+	
+	instance_destroy(weapon)
+	switch(key) {
+		case 1 : 
+			weapon = instance_create_layer(x, y, "weapons", sword_obj)
+			break
+		case 2 :
+			weapon = instance_create_layer(x, y, "weapons", axe_obj)
+			break
+		case 3 :
+			weapon = instance_create_layer(x, y, "weapons", rifle_obj)
+			break
+		case 4 :
+			weapon = instance_create_layer(x, y, "weapons", machine_gun_obj)
+			break
 	}
 }
