@@ -17,5 +17,6 @@ function lose_hp(value) {
 	if hp <= 0 {
 		instance_create_layer(x, y, "Instances", gold_obj)
 		instance_destroy()
+		audio_play_sound(Mobs_Dying, 1, false)
 	}
 }

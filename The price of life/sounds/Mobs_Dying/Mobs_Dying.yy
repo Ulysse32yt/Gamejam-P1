@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Mobs_Dying",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":0.32759637,
+  "exportDir":"",
+  "name":"Mobs_Dying",
+  "parent":{
+    "name":"sons",
+    "path":"folders/sons.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Mobs_Dying.mp3",
+  "volume":1.0,
+}

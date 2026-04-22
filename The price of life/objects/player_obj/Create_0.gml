@@ -27,9 +27,11 @@ view_visible[0] = true
 function lose_hp(number) {
 	if cooldown_damage == 0 {
 		hp -= number
+		audio_play_sound(Damage, 1, false)
 		if hp <= 0 {
 			instance_destroy(weapon)
 			instance_destroy()
+			audio_play_sound(Death, 1, false)
 			with (game_manager_obj) {
 				game_over = true
 			}
