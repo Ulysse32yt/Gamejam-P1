@@ -27,6 +27,7 @@ draw_set_halign(fa_left)
 
 if draw_event_cooldown > 0 {
     draw_set_font(button_font)
+	draw_set_color(c_black)
     draw_text(display_get_gui_width()/2 - string_width(event_text)/2, 10, event_text)
 }
 
