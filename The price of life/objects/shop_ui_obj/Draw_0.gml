@@ -1,6 +1,5 @@
 var _gui_w = display_get_gui_width()
 var _gui_h = display_get_gui_height()
-var _shop = shop_manager_obj
 var _xp = xp_obj
 
 draw_set_font(-1)
@@ -25,8 +24,8 @@ var _y = _gui_h / 2 - _card_h / 2
 
 for (var i = 0; i < 4; i++) {
     var _x = _start_x + i * (_card_w + _gap)
-    var _cost = _shop.get_cost(_lvls[i])
-    var _can_afford = (global.xp >= _cost)
+    var _cost = get_cost(_lvls[i])
+    var _can_afford = ((global.xp >= _cost) and (_lvls[i] < 20))
     
     // Fond de la carte
     if (selected == i) {
@@ -55,7 +54,11 @@ for (var i = 0; i < 4; i++) {
     
     // Coût
     draw_set_color(_can_afford ? c_yellow : c_red)
-    draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " XP")
+	if _lvls[i] < 20{
+		draw_text(_x + _card_w/2, _y + 115, "Cost : " + string(_cost) + " XP")
+	} else {
+		draw_text(_x + _card_w/2, _y + 115, "MAX LEVEL")
+	}
 }
 
 var _btn_w = 160
