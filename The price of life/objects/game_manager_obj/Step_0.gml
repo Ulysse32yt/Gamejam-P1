@@ -35,7 +35,7 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
     }
 }
 
-
+// check debloquage des armes
 if instance_exists(player_obj) {
 	if gold >= 5 and not player_obj.weapons_unlocked[$ "2"] {
 		player_obj.weapons_unlocked[$ "2"] = true
@@ -59,34 +59,24 @@ if draw_event_cooldown > 0 {
 	draw_event_cooldown -= 1
 }
 
-
+// écran fin de jeu
 if (game_over) {
 	if (!xp_given) {
         var _xp_gain = floor(1 + (wave * (wave + 1)) / 2)
-        with (xp_obj) {
-            xp += _xp_gain
-        }
+        global.xp += _xp_gain
         xp_given = true
     }
 	
-    if (mouse_check_button_pressed(mb_any)) {
+    if (mouse_check_button_pressed(mb_any) and game_over_cooldown <= 0) {
         game_over = false
 		xp_given = false
         
-        // Sauvegarder toutes les données avant de retourner au menu
-        if (instance_exists(xp_obj)) {
-            xp_obj.save_player_data();
-            show_debug_message("Game data saved before returning to menu");
-        }
-        if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && instance_exists(shop_manager_obj)) {
-            shop_manager_obj.save_upgrades();
-            show_debug_message("Upgrades saved before returning to menu");
-        }
-        
+		save_data()
         room_goto(MainMenu)
 		var controller = instance_exists(transition_controller_obj) ? instance_find(transition_controller_obj, 0) : noone;
 		if (controller != noone) {
 			controller.transition = 0;
 		}
     }
+	game_over_cooldown -= 1
 }

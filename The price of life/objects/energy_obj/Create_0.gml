@@ -1,6 +1,6 @@
-max_energy = 100 + (global.max_energy_bonus != undefined ? global.max_energy_bonus : 0)
+max_energy = 100 + global.lvl_max_energy*20
 energy = max_energy
-recup = 5 + (global.energy_recovery_bonus != undefined ? global.energy_recovery_bonus : 0)
+recup = 5 + global.lvl_energy_recup*5
 not_enough_energy_cooldown = 120
 cooldown = 0
 

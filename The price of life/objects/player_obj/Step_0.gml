@@ -12,6 +12,7 @@ if place_meeting(x, y+y_speed*move_speed, mur_obj) or (y + y_speed*move_speed < 
 	y_speed = 0
 }
 
+// Check switch weapon
 if keyboard_check(ord("1")) {
 	switch_weapon(1)
 } else if keyboard_check(ord("2")) {

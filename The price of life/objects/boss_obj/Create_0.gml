@@ -6,7 +6,7 @@ damage = 4
 reload_time = 180
 reloading = 0
 
-hp_max = 10
+hp_max = 500
 hp = hp_max
 
 _bar_width = 64
@@ -15,7 +15,7 @@ _bar_x = 0
 _bar_y = 0
 
 
-phase_cooldowns = {"classic": 600, "dash": 60, "shooting": 60, "throwing": 120}
+phase_cooldowns = {"classic": 300, "dash": 60, "shooting": 60, "throwing": 120}
 cooldown = phase_cooldowns[$ "classic"]
 phase = "classic"
 

@@ -20,10 +20,10 @@ draw_rectangle(_slider_x, _slider_y, _slider_x + _slider_w, _slider_y + _slider_
 
 // Partie remplie
 draw_set_color(c_yellow)
-draw_rectangle(_slider_x, _slider_y, _slider_x + (_slider_w * volume), _slider_y + _slider_h, false)
+draw_rectangle(_slider_x, _slider_y, _slider_x + (_slider_w * global.volume), _slider_y + _slider_h, false)
 
 // Curseur
-var _cursor_x = _slider_x + (_slider_w * volume)
+var _cursor_x = _slider_x + (_slider_w * global.volume)
 draw_set_color(c_white)
 draw_circle(_cursor_x, _slider_y + _slider_h/2, 12, false)
 
@@ -31,7 +31,7 @@ draw_circle(_cursor_x, _slider_y + _slider_h/2, 12, false)
 draw_set_halign(fa_center)
 draw_set_color(c_white)
 draw_set_font(-1)
-draw_text(_gui_w/2, _slider_y - 30, "Volume : " + string(round(volume * 100)) + "%")
+draw_text(_gui_w/2, _slider_y - 30, "Volume : " + string(round(global.volume * 100)) + "%")
 
 // Bouton Retour
 var _btn_w = 160
@@ -46,5 +46,19 @@ draw_rectangle(_btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h, true)
 draw_set_halign(fa_center)
 draw_set_valign(fa_middle)
 draw_set_color(_hover ? c_black : c_white)
-draw_text(_btn_x + _btn_w/2, _btn_y + _btn_h/2, "< Retour")
+draw_text(_btn_x + _btn_w/2, _btn_y + _btn_h/2, "Retour")
+draw_set_valign(fa_top)
+
+// Bouton reset
+_btn_x = _gui_w - 30 - _btn_w
+_btn_y = _gui_h - 80
+_hover = point_in_rectangle(_gui_mx, _gui_my, _btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h)
+draw_set_color(_hover ? c_yellow : make_color_rgb(40, 40, 40))
+draw_rectangle(_btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h, false)
+draw_set_color(_hover ? c_black : c_white)
+draw_rectangle(_btn_x, _btn_y, _btn_x + _btn_w, _btn_y + _btn_h, true)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_color(_hover ? c_black : c_white)
+draw_text(_btn_x + _btn_w/2, _btn_y + _btn_h/2, "Reset")
 draw_set_valign(fa_top)

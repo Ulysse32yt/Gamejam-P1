@@ -17,11 +17,6 @@ if (mouse_check_button_pressed(mb_left)) {
     }
 }
 
-// Appliquer le bonus de récupération d'énergie en continu
-if (variable_global_exists("energy_recovery_bonus")) {
-    recup = 5 + global.energy_recovery_bonus;
-}
-
 if cooldown > 0 {
-	cooldown -= 1	
+	cooldown -= 1
 }

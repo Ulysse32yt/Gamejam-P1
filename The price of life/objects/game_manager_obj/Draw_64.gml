@@ -102,24 +102,3 @@ if (instance_exists(player_obj)) {
     draw_set_halign(fa_left);
     draw_set_color(c_white);
 }
-
-// Bouton Settings
-if (!game_over) {
-    var _gui_mx = device_mouse_x_to_gui(0)
-    var _gui_my = device_mouse_y_to_gui(0)
-    var _sbtn_w = 120
-    var _sbtn_h = 40
-    var _sbtn_x = display_get_gui_width() - _sbtn_w - 20
-    var _sbtn_y = 20
-    var _shover = point_in_rectangle(_gui_mx, _gui_my, _sbtn_x, _sbtn_y, _sbtn_x + _sbtn_w, _sbtn_y + _sbtn_h)
-    
-    draw_set_color(_shover ? c_yellow : make_color_rgb(40, 40, 40))
-    draw_rectangle(_sbtn_x, _sbtn_y, _sbtn_x + _sbtn_w, _sbtn_y + _sbtn_h, false)
-    draw_set_color(_shover ? c_black : c_white)
-    draw_rectangle(_sbtn_x, _sbtn_y, _sbtn_x + _sbtn_w, _sbtn_y + _sbtn_h, true)
-    draw_set_halign(fa_center)
-    draw_set_valign(fa_middle)
-    draw_set_font(-1)
-    draw_text(_sbtn_x + _sbtn_w/2, _sbtn_y + _sbtn_h/2, "Settings")
-    draw_set_valign(fa_top)
-}
