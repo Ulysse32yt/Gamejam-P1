@@ -1,4 +1,4 @@
-damage = 5+global.lvl_damage
+damage = 8+global.lvl_damage
 bullet_speed = 20
 reload_time = 60 // 60 frame soit une seconde
 reloading = 0

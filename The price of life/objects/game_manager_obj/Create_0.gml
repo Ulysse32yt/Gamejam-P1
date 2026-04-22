@@ -90,6 +90,8 @@ xp_given = false
 nb_mobs_before_sentinel = 2
 counter_mobs_before_sentinel = 0
 
+draw_event_cooldown = 0
+event_text = ""
 start_next_wave()
 
 // Initialiser tous les fichiers de données depuis datafiles vers appdata

@@ -25,9 +25,15 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
 draw_set_color(c_white)
 draw_set_halign(fa_left)
 
+
+if draw_event_cooldown > 0 {
+	draw_set_font(button_font)
+	draw_text(display_get_gui_width()/2 - string_width(event_text)/2, 10, event_text)
+}
+
 if (game_over) {
-    var _gui_w = camera_get_view_width(view_camera[0]);
-    var _gui_h = camera_get_view_height(view_camera[0]);
+    _gui_w = camera_get_view_width(view_camera[0]);
+    _gui_h = camera_get_view_height(view_camera[0]);
     
     // Fond semi-transparent noir
     draw_set_alpha(0.6);
