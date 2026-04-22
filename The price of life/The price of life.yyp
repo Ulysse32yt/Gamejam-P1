@@ -49,6 +49,7 @@
     {"id":{"name":"rifle_obj","path":"objects/rifle_obj/rifle_obj.yy",},},
     {"id":{"name":"sentinel_bullet_obj","path":"objects/sentinel_bullet_obj/sentinel_bullet_obj.yy",},},
     {"id":{"name":"sentinel_obj","path":"objects/sentinel_obj/sentinel_obj.yy",},},
+    {"id":{"name":"settings_ui_obj","path":"objects/settings_ui_obj/settings_ui_obj.yy",},},
     {"id":{"name":"shop_manager_obj","path":"objects/shop_manager_obj/shop_manager_obj.yy",},},
     {"id":{"name":"shop_ui_obj","path":"objects/shop_ui_obj/shop_ui_obj.yy",},},
     {"id":{"name":"sword_obj","path":"objects/sword_obj/sword_obj.yy",},},
