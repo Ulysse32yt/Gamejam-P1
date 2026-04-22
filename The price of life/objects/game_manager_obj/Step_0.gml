@@ -44,6 +44,17 @@ if (game_over) {
     if (mouse_check_button_pressed(mb_any)) {
         game_over = false
 		xp_given = false
+        
+        // Sauvegarder toutes les données avant de retourner au menu
+        if (instance_exists(xp_obj)) {
+            xp_obj.save_player_data();
+            show_debug_message("Game data saved before returning to menu");
+        }
+        if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && instance_exists(shop_manager_obj)) {
+            shop_manager_obj.save_upgrades();
+            show_debug_message("Upgrades saved before returning to menu");
+        }
+        
         room_goto(MainMenu)
 		var controller = instance_exists(transition_controller_obj) ? instance_find(transition_controller_obj, 0) : noone;
 		if (controller != noone) {

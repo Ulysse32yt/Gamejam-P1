@@ -1,4 +1,4 @@
-damage = 1 + global.lvl_damage
+damage = 1
 bullet_speed = 15
 reload_time = 6 // 12 frames soit 5 balles /s
 reloading = 0
@@ -32,4 +32,9 @@ function switch_hands() {
 	} else {
 		hand = "left"
 	}
+}
+
+// Appliquer les bonus d'amélioration de dégâts
+if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && variable_global_exists("projectile_damage_bonus")) {
+    damage += global.projectile_damage_bonus;
 }

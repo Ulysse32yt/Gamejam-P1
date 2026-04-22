@@ -21,9 +21,7 @@ if mouse_check_button(mb_left) {										// Si click
 	if not (point_in_rectangle(_gui_x, _gui_y, 0, 128, 128, 256)) {		// Et pas sur energy
 		if energy_obj.energy > weapon.energy_cost {						// Et assez d'énergie :
 			weapon.attack()												// Déclencher l'attaque
-		} else {
-			energy_obj.print_not_enough_energy()	
-		}
+		}	
 	}
 }
 
@@ -36,8 +34,6 @@ if x_speed != 0 {
 		if (x_speed > 0 and weapon.hand == "left") or (x_speed < 0 and weapon.hand = "right") {
 			weapon.switch_hands()
 		}
-	} else {
-		energy_obj.print_not_enough_energy()
 	}
 }
 
@@ -55,6 +51,15 @@ var _cx = clamp(x - 683, 0, room_width - 1366)
 var _cy = clamp(y - 384, 0, room_height - 768)
 camera_set_view_pos(_cam, _cx, _cy)
 
-if cooldown_damage > 0 {
-	cooldown_damage -= 1	
+// application des upgrades
+if (!upgrades_applied && variable_global_exists("upgrades_loaded") && global.upgrades_loaded && instance_exists(energy_obj)) {
+    // Appliquer les bonus du nouveau système JSON
+    if (global.max_energy_bonus != undefined) {
+        energy_obj.max_energy = 100 + global.max_energy_bonus;
+    }
+    if (global.energy_recovery_bonus != undefined) {
+        energy_obj.recup = 5 + global.energy_recovery_bonus;
+    }
+    energy_obj.energy = energy_obj.max_energy / 2;
+    upgrades_applied = true;
 }
