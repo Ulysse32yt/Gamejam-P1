@@ -6,6 +6,8 @@
   "inheritCreationOrder":false,
   "inheritLayers":false,
   "instanceCreationOrder":[
+    {"name":"inst_DATA_INIT_MENU","path":"rooms/MainMenu/MainMenu.yy",},
+    {"name":"inst_UPGRADE_MANAGER_MENU","path":"rooms/MainMenu/MainMenu.yy",},
     {"name":"inst_4053BCB2","path":"rooms/MainMenu/MainMenu.yy",},
     {"name":"inst_2096604A","path":"rooms/MainMenu/MainMenu.yy",},
     {"name":"inst_43118334","path":"rooms/MainMenu/MainMenu.yy",},
@@ -18,6 +20,8 @@
   "layers":[
     {"$GMRInstanceLayer":"","%Name":"Transitions","depth":0,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[],"layers":[],"name":"Transitions","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRInstanceLayer":"","%Name":"Instances","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"instances":[
+        {"$GMRInstance":"v4","%Name":"inst_DATA_INIT_MENU","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_DATA_INIT_MENU","objectId":{"name":"data_init_obj","path":"objects/data_init_obj/data_init_obj.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":0.0,},
+        {"$GMRInstance":"v4","%Name":"inst_UPGRADE_MANAGER_MENU","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_UPGRADE_MANAGER_MENU","objectId":{"name":"upgrade_manager_obj","path":"objects/upgrade_manager_obj/upgrade_manager_obj.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":0.0,"y":32.0,},
         {"$GMRInstance":"v4","%Name":"inst_4053BCB2","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4053BCB2","objectId":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},"properties":[
             {"$GMOverriddenProperty":"v1","%Name":"","name":"","objectId":{"name":"button_obj","path":"objects/button_obj/button_obj.yy",},"propertyId":{"name":"action","path":"objects/button_obj/button_obj.yy",},"resourceType":"GMOverriddenProperty","resourceVersion":"2.0","value":"\"play\"",},
           ],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":2.0,"x":224.0,"y":320.0,},
