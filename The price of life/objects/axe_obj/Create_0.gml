@@ -6,9 +6,10 @@ energy_cost = 5
 money_cost = 15
 
 swinging = false
-angle = 0
+angle = 70
 angle_origin = 0
 angle_ending = 0
+amplitude = 220
 
 
 
@@ -24,11 +25,11 @@ function attack() {
 	angle = point_direction(x, y, mouse_x, mouse_y) - 90
 	
 	if hand == "right" {
-		angle_origin = angle + 45
-		angle_ending = angle - 45
+		angle_origin = angle + amplitude/2
+		angle_ending = angle - amplitude/2
 	} else {
-		angle_origin = angle - 45
-		angle_ending = angle + 45
+		angle_origin = angle - amplitude/2
+		angle_ending = angle + amplitude/2
 	}
 	
 	image_angle = angle_origin
