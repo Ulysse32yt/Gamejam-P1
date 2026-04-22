@@ -8,6 +8,6 @@ if cooldown > 0 {
 	cx = display_get_gui_width() * 0.35
 	cy = display_get_gui_height() * 0.1
 
-	draw_text(cx, cy, "Not enough energy !")
+	draw_text(cx, cy, "Pas assez d'energie !")
 
 }

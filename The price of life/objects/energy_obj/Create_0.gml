@@ -1,15 +1,8 @@
-// Énergie de base + bonus d'amélioration
-max_energy = 100;
-if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && variable_global_exists("max_energy_bonus")) {
-    max_energy += global.max_energy_bonus;
-}
-energy = max_energy/2;
-
-// Récupération de base + bonus d'amélioration
-recup = 5;
-if (variable_global_exists("upgrades_loaded") && global.upgrades_loaded && variable_global_exists("energy_recovery_bonus")) {
-    recup += global.energy_recovery_bonus;
-}
+max_energy = 100 + global.lvl_max_energy*20
+energy = max_energy
+recup = 5 + global.lvl_energy_recup*5
+not_enough_energy_cooldown = 120
+cooldown = 0
 
 function lose_energy(number) {
 	energy -= number
@@ -18,10 +11,10 @@ function lose_energy(number) {
 	}
 }
 
-function update_energy_stats() {
-    // Mettre à jour les stats quand les améliorations changent
-    if (global.upgrades_loaded) {
-        max_energy = 100 + (global.max_energy_bonus || 0);
-        recup = 5 + (global.energy_recovery_bonus || 0);
-    }
+function print_not_enough_energy() {
+	if cooldown > 0 {
+		return
+	} else {	
+		cooldown  = not_enough_energy_cooldown
+	}
 }
