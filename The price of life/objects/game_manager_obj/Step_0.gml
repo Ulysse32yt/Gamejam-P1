@@ -19,7 +19,7 @@ if (mobs_to_spawn > 0) {
         mobs_to_spawn--
         spawn_timer = spawn_delay
     }
-} else if wave == 1 and not boss_spawned{
+} else if wave == 6 and not boss_spawned{
 	spawn_boss()
 	boss_spawned = true
 }
