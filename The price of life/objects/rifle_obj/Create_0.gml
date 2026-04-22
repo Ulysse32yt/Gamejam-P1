@@ -24,6 +24,7 @@ function attack() {
 		_bullet.damage = damage
 		reloading = 1
 		energy_obj.energy -= energy_cost
+		audio_play_sound(Gun_Sounds, 1,false)
 	}
 }
 
