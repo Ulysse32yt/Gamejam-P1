@@ -31,6 +31,7 @@ function attack() {
 	image_angle = angle_origin
 	swinging = true
 	energy_obj.energy -= energy_cost
+	audio_play_sound(Sword, 1, false)
 }
 
 function switch_hands() {

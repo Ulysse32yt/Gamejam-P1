@@ -17,9 +17,9 @@ var default_data = {
     "points_amelioration": 0
 };
 
-// Toujours essayer de charger depuis le fichier
-var file_path = "datafiles/ameliorations.json";
-show_debug_message("Attempting to load upgrades from: " + file_path);
+// Toujours essayer de charger depuis le fichier dans appdata
+var file_path = "ameliorations.json";
+show_debug_message("Attempting to load upgrades from appdata: " + file_path);
 
 var file = file_text_open_read(file_path);
 if (file != -1) {
