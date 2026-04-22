@@ -1,5 +1,5 @@
 // Compte les mobs encore en vie
-mobs_remaining = instance_number(mob_obj) + instance_number(sentinel_obj)
+mobs_remaining = instance_number(mob_obj) + instance_number(sentinel_obj) + instance_number(boss_obj)
 
 // Spawn progressif des mobs
 if (mobs_to_spawn > 0) {
@@ -19,6 +19,9 @@ if (mobs_to_spawn > 0) {
         mobs_to_spawn--
         spawn_timer = spawn_delay
     }
+} else if wave == 6 and not boss_spawned{
+	spawn_boss()
+	boss_spawned = true
 }
 
 // Vague terminée quand plus aucun mob en vie et plus rien à spawner
