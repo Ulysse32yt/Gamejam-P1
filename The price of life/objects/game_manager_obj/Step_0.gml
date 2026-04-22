@@ -5,7 +5,7 @@ mobs_remaining = instance_number(mob_obj) + instance_number(sentinel_obj)
 if (mobs_to_spawn > 0) {
     spawn_timer--
     if (spawn_timer <= 0) {
-		if wave >= 2 {
+		if wave >= 4 {
 			if counter_mobs_before_sentinel < nb_mobs_before_sentinel {
 				spawn_mob()
 				counter_mobs_before_sentinel += 1

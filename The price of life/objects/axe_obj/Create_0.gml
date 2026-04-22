@@ -1,4 +1,4 @@
-damage = 3
+damage = 3+global.lvl_damage
 nb_hit = 3
 nb_hit_left = nb_hit
 
@@ -46,8 +46,4 @@ function switch_hands() {
 			image_angle = 45
 		}
 	}
-}
-
-if (instance_exists(shop_manager_obj)) {
-    damage += shop_manager_obj.lvl_damage * 1
 }

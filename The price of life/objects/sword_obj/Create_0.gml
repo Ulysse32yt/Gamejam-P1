@@ -1,4 +1,4 @@
-damage = 1
+damage = 1 + lvl_damage
 nb_hit = 1 // nombre de coup que l'on peut distribuer en un swing
 nb_hit_left = nb_hit
 
@@ -39,8 +39,4 @@ function switch_hands() {
 	} else {
 		hand = "left"
 	}
-}
-
-if (instance_exists(shop_manager_obj)) {
-    damage += shop_manager_obj.lvl_damage * 1
 }
