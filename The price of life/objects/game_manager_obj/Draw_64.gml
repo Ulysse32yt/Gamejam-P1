@@ -56,3 +56,58 @@ if (game_over) {
     
     draw_set_halign(fa_left);
 }
+
+if (instance_exists(player_obj)) {
+    var _gui_w = camera_get_view_width(view_camera[0]);
+    var _gui_h = camera_get_view_height(view_camera[0]);
+    
+    var _names   = ["Sword", "Axe", "Rifle", "Machine Gun"];
+    var _costs   = [0, 5, 10, 20];
+    var _keys    = ["1", "2", "3", "4"];
+    var _card_w  = 120;
+    var _card_h  = 70;
+    var _gap     = 10;
+    var _total   = (_card_w * 4) + (_gap * 3);
+    var _start_x = (_gui_w - _total) / 2;
+    var _y       = _gui_h - _card_h - 10;
+    
+    draw_set_font(-1);
+    
+    for (var i = 0; i < 4; i++) {
+        var _x = _start_x + i * (_card_w + _gap);
+        var _is_unlocked = player_obj.weapons_unlocked[$ string(i + 1)];
+        
+        // Fond
+        if (_is_unlocked) {
+            draw_set_color(make_color_rgb(30, 80, 30));  // Vert = débloqué
+        } else {
+            draw_set_color(make_color_rgb(60, 20, 20));  // Rouge = bloqué
+        }
+        draw_rectangle(_x, _y, _x + _card_w, _y + _card_h, false);
+        
+        // Bordure
+        draw_set_color(_is_unlocked ? c_green : c_red);
+        draw_rectangle(_x, _y, _x + _card_w, _y + _card_h, true);
+        
+        // Nom
+        draw_set_halign(fa_center);
+        draw_set_color(c_white);
+        draw_text(_x + _card_w/2, _y + 8, _names[i]);
+        
+        // Touche
+        draw_set_color(c_yellow);
+        draw_text(_x + _card_w/2, _y + 28, "[" + _keys[i] + "]");
+        
+        // Prix ou UNLOCKED
+        if (_is_unlocked) {
+            draw_set_color(c_lime);
+            draw_text(_x + _card_w/2, _y + 48, "UNLOCKED");
+        } else {
+            draw_set_color(c_orange);
+            draw_text(_x + _card_w/2, _y + 48, string(_costs[i]) + " gold");
+        }
+    }
+    
+    draw_set_halign(fa_left);
+    draw_set_color(c_white);
+}

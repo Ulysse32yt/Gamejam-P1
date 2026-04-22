@@ -87,6 +87,11 @@ gold = 0
 game_over = false
 xp_given = false
 
+unlocked_sword = true
+unlocked_axe = false
+unlocked_rifle = false
+unlocked_machine_gun = false
+
 nb_mobs_before_sentinel = 2
 counter_mobs_before_sentinel = 0
 

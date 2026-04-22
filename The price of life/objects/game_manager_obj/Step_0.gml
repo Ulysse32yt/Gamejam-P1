@@ -33,22 +33,39 @@ if (mobs_to_spawn == 0 && mobs_remaining == 0 && wave_started) {
 }
 
 
-if instance_exists(player_obj) {
-	if gold >= 5 and not player_obj.weapons_unlocked[$ "2"] {
-		player_obj.weapons_unlocked[$ "2"] = true
-		draw_event_cooldown = 120
-		event_text = "hache debloquee !"
-	}
-	if gold >= 10 and not player_obj.weapons_unlocked[$ "3"] {
-		player_obj.weapons_unlocked[$ "3"] = true
-		draw_event_cooldown = 120
-		event_text = "fusil debloque !"
-	}
-	if gold >= 20 and not player_obj.weapons_unlocked[$ "4"] {
-		player_obj.weapons_unlocked[$ "4"] = true
-		draw_event_cooldown = 120
-		event_text = "mitrailleuse debloquee !"
-	}
+if (instance_exists(player_obj)) {
+    // Déblocage en cliquant sur la barre
+    if (mouse_check_button_pressed(mb_left)) {
+        var _gui_mx  = device_mouse_x_to_gui(0);
+        var _gui_my  = device_mouse_y_to_gui(0);
+        var _gui_w   = camera_get_view_width(view_camera[0]);
+        var _gui_h   = camera_get_view_height(view_camera[0]);
+        var _costs   = [0, 5, 10, 20];
+        var _card_w  = 120;
+        var _card_h  = 70;
+        var _gap     = 10;
+        var _total   = (_card_w * 4) + (_gap * 3);
+        var _start_x = (_gui_w - _total) / 2;
+        var _y       = _gui_h - _card_h - 10;
+        
+        for (var i = 1; i < 4; i++) { // Commence à 1, sword toujours dispo
+            var _x = _start_x + i * (_card_w + _gap);
+            
+            if (point_in_rectangle(_gui_mx, _gui_my, _x, _y, _x + _card_w, _y + _card_h)) {
+                var _is_unlocked = player_obj.weapons_unlocked[$ string(i + 1)];
+                
+                if (!_is_unlocked && gold >= _costs[i]) {
+                    gold -= _costs[i];
+                    player_obj.weapons_unlocked[$ string(i + 1)] = true;
+                    
+                    // Message de déblocage
+                    var _wnames = ["", "Axe", "Rifle", "Machine Gun"];
+                    draw_event_cooldown = 120;
+                    event_text = _wnames[i] + " unlocked!";
+                }
+            }
+        }
+    }
 }
 
 
@@ -87,3 +104,4 @@ if (game_over) {
 		}
     }
 }
+
